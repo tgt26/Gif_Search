@@ -9,7 +9,14 @@ const apiKey = '&api_key=1NEAOTayyzl4oohzVnNZUABFXmbfUCxK&limit=20';
 
 let query;
 
-// Load gifs on click
+// Load gifs on click or enter
+search.addEventListener('keyup', event => {
+    event.preventDefault();
+    if (event.keyCode === 13) { //key coode 13 corresponds to the enter key
+        searchBtn.click();
+    }
+});
+
 searchBtn.addEventListener('click', function () {
     query = search.value;
     let url = api + query + apiKey;
