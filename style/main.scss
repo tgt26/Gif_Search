@@ -1,0 +1,110 @@
+// Variables
+$bg: #f1f1f1;
+$fColor: #333;
+
+/* Core Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $bg;
+    width: 100%;
+    height: 100%;
+    color: $fColor;
+    font-family: Helvetica, sans-serif;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header .search-bar {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#search {
+    width: 70%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    outline: none;
+    transition: all 0.5s;
+    font-size: 1rem;
+
+    &:focus {
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.19), 0 1px 10px rgba(0, 0, 0, 0.23);
+    }
+}
+
+#search-btn {
+    padding: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.5s all;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: #424242;
+        color: #fff;
+    }
+}
+
+//Trending text
+#trending {
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0.5rem auto;
+}
+
+// Gif Container
+.gif-container {
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 1rem;
+    padding-top: 1rem;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+
+    & img {
+        transition: all 1s;
+        width: 100%;
+        height: auto;
+        display: block;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+}
+
+//Footer
+footer {
+    padding: 0.5rem;
+    background: #424242;
+    color: #fff;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+@media (min-width: 900px) {
+    .gif-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
