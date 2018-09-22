@@ -4,7 +4,7 @@
 const search = document.querySelector('#search');
 const searchBtn = document.querySelector('#search-btn');
 const trendingText = document.querySelector('#trending');
-const api = 'http://api.giphy.com/v1/gifs/search?q=';
+const api = 'https://api.giphy.com/v1/gifs/search?q=';
 const apiKey = '&api_key=1NEAOTayyzl4oohzVnNZUABFXmbfUCxK&limit=20';
 
 let query;
@@ -38,7 +38,7 @@ function imgCreate(src) {
 
 // Trending Gifs when page loads
 window.onload = function () {
-    let trending = 'http://api.giphy.com/v1/gifs/trending?';
+    let trending = 'https://api.giphy.com/v1/gifs/trending?';
     fetch(trending + apiKey)
         .then(response => response.json())
         .then(json => {
