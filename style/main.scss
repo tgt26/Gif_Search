@@ -11,12 +11,38 @@ body {
     height: 100%;
     color: $fColor;
     font-family: Helvetica, sans-serif;
+    transition: 0.5s all;
+}
+
+body.dark-mode {
+    background-color: #111;
+    color: #fff;
+}
+
+body.light-theme {
+    background-color: $bg;
+    color: $fColor;
 }
 
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+// Dark Mode
+.dark-mode-container {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+
+    &::before {
+        content: 'Dark Mode';
+    }
+}
+
+
 
 /* Header */
 header {

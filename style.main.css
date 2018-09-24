@@ -7,17 +7,6 @@ body {
   height: 100%;
   color: #333;
   font-family: Helvetica, sans-serif;
-  transition: 0.5s all;
-}
-
-body.dark-mode {
-  background-color: #111;
-  color: #fff;
-}
-
-body.light-theme {
-  background-color: #f1f1f1;
-  color: #333;
 }
 
 .wrapper {
@@ -25,14 +14,15 @@ body.light-theme {
   margin: 0 auto;
 }
 
-.dark-mode-container {
+.dark-mode {
   font-size: 1.5rem;
   position: absolute;
   top: 0;
   left: 0;
   cursor: pointer;
 }
-.dark-mode-container::before {
+
+#dark-mode:before {
   content: "Dark Mode";
 }
 
@@ -120,4 +110,4 @@ footer {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=style.main.css.map */

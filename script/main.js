@@ -1,6 +1,7 @@
 // jshint esversion: 6
 
 // Variable declarations
+const darkToggle = document.getElementById('dark-btn');
 const search = document.querySelector('#search');
 const searchBtn = document.querySelector('#search-btn');
 const trendingText = document.querySelector('#trending');
@@ -57,3 +58,23 @@ window.onload = function () {
             console.log(err);
         });
 };
+
+// Dark mode
+darkToggle.addEventListener('click', function () {
+    let body = document.getElementsByTagName('body')[0];
+    let currentClass = body.className;
+
+    body.className = currentClass == 'dark-mode' ? 'light-mode' : 'dark-mode';
+
+    if (darkToggle.classList.contains('fa-toggle-off')) {
+        darkToggle.classList.remove('fa-toggle-off');
+        darkToggle.classList.add('fa-toggle-on');
+        darkToggle.style.color = "#fff";
+    } else {
+        darkToggle.classList.add('fa-toggle-off');
+        darkToggle.classList.remove('fa-toggle-on');
+        darkToggle.style.color = "#333";
+    }
+
+
+});
