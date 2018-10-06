@@ -109,6 +109,7 @@ header .search-bar {
     align-items: center;
     justify-items: center;
     margin: 0 auto;
+    min-height: 90vh;
 
     & img {
         transition: all 1s;
