@@ -46,6 +46,15 @@ function imgCreate(src) {
 
 // Trending Gifs when page loads
 window.onload = function () {
+    if (localStorage.getItem('mode') === 'dark') {
+        darkMode();
+        darkToggle.classList.remove('fa-toggle-off');
+        darkToggle.classList.add('fa-toggle-on');
+    } else {
+        lightMode();
+    }
+
+
     let trending = 'https://api.giphy.com/v1/gifs/trending?';
     fetch(trending + apiKey)
         .then(response => response.json())
@@ -59,21 +68,27 @@ window.onload = function () {
         });
 };
 
-// Dark mode
-darkToggle.addEventListener('click', function () {
-    let body = document.getElementsByTagName('body')[0];
-    let currentClass = body.className;
-
-    body.className = currentClass == 'dark-mode' ? 'light-mode' : 'dark-mode';
-
+// Acticating Dark mode
+darkToggle.addEventListener('click', () => {
     if (darkToggle.classList.contains('fa-toggle-off')) {
+        darkMode();
         darkToggle.classList.remove('fa-toggle-off');
         darkToggle.classList.add('fa-toggle-on');
     } else {
+        lightMode();
         darkToggle.classList.add('fa-toggle-off');
         darkToggle.classList.remove('fa-toggle-on');
-
     }
-
-
 });
+
+//Sets body color to dark
+function darkMode() {
+    document.querySelector('body').classList.add('dark-mode');
+    localStorage.setItem('mode', 'dark');
+}
+
+//Sets body color to light
+function lightMode() {
+    document.querySelector('body').classList.remove('dark-mode');
+    localStorage.setItem('mode', 'light');
+}
