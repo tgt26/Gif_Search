@@ -69,11 +69,10 @@ darkToggle.addEventListener('click', function () {
     if (darkToggle.classList.contains('fa-toggle-off')) {
         darkToggle.classList.remove('fa-toggle-off');
         darkToggle.classList.add('fa-toggle-on');
-        darkToggle.style.color = "#fff";
     } else {
         darkToggle.classList.add('fa-toggle-off');
         darkToggle.classList.remove('fa-toggle-on');
-        darkToggle.style.color = "#333";
+
     }
 
 
