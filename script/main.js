@@ -20,20 +20,25 @@ search.addEventListener('keyup', event => {
 
 searchBtn.addEventListener('click', function () {
     query = search.value;
-    let url = api + query + apiKey;
-    fetch(url)
-        .then(response => response.json())
-        .then(json => {
-            for (let i = 0; i < json.data.length; i++) {
-                imgCreate(json.data[i].images.original.url);
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    search.value = '';
-    document.querySelector('.gif-container').innerHTML = '';
-    trendingText.innerHTML = 'Showing results for: ' + '\"' + query + '\"';
+    if (query != '') {
+        let url = api + query + apiKey;
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                for (let i = 0; i < json.data.length; i++) {
+                    imgCreate(json.data[i].images.original.url);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        search.value = '';
+        document.querySelector('.gif-container').innerHTML = '';
+        trendingText.innerHTML = `Showing results for: ${query}`;
+    } else {
+        alert('enter search query');
+    }
 });
 
 
@@ -54,9 +59,7 @@ window.onload = function () {
         lightMode();
     }
 
-
-    let trending = 'https://api.giphy.com/v1/gifs/trending?';
-    fetch(trending + apiKey)
+    fetch(`https://api.giphy.com/v1/gifs/trending?${apiKey}`)
         .then(response => response.json())
         .then(json => {
             for (let i = 0; i < json.data.length; i++) {
